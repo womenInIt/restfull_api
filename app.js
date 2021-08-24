@@ -8,8 +8,7 @@ var indexRouter = require('./routes/ideas');
 var usersRouter = require('./routes/weather');
 
 var app = express();
-expressOasGenerator.handleResponses(app, {});
-expressOasGenerator.handleRequests();
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -19,6 +18,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+expressOasGenerator.handleResponses(app, {});
+expressOasGenerator.handleRequests();
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
