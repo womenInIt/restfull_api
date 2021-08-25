@@ -1,11 +1,11 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const logger = require('morgan');
 const expressOasGenerator = require('express-oas-generator');
 
-var indexRouter = require('./routes/ideas');
-var usersRouter = require('./routes/weather');
+const indexRouter = require('./routes/ideas');
+const weatherRouter = require('./routes/weather');
 
 var app = express();
 
@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/weather', weatherRouter);
 
 expressOasGenerator.handleResponses(app, {});
 expressOasGenerator.handleRequests();
