@@ -166,7 +166,7 @@
                         "type": "integer",
                         "format": "int64"
                     },
-                    "status": {
+                    "text": {
                         "type": "string",
                         "description": "Idea text"
                     },
